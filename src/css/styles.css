@@ -112,6 +112,10 @@ li{
 	cursor: pointer;
 }
 
+.channel-item {
+	cursor: pointer;
+}
+
 .errMessage{
 	margin-top: 15px;
 	color: red;

@@ -1,12 +1,11 @@
-// @flow
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
-import {compose} from 'redux';
+import { fetchNews } from '../actions/index';
+import { connect } from 'react-redux';
 
 class ListItems extends Component {
 
     handleOnClick = (path) => () => {
-        this.props.history.push(path);
+        this.props.fetchNews(path);
     };
 
 
@@ -14,7 +13,7 @@ class ListItems extends Component {
         const {location: {pathname} = {}} = this.props;
         const {path, name} = item;
         return (
-            <li onClick={this.handleOnClick(path)}
+            <li key={path} onClick={this.handleOnClick(path)}
                 className={pathname === path ? 'list-item active' : 'list-item'}>
                 {name}
             </li>
@@ -57,4 +56,4 @@ class ListItems extends Component {
 };
 
 
-export default ListItems;
+export default connect(null, {fetchNews})(ListItems);

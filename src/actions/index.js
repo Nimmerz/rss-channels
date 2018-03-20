@@ -31,3 +31,10 @@ export function changePage(numb) {
 		payload: numb
 	}
 }
+
+export function setActiveNew(item) {
+	return {
+		type: "Pge",
+		payload:item
+	}
+}
