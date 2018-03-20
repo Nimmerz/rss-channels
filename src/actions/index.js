@@ -1,6 +1,7 @@
 export const FETCH_NEWS = 'FETCH_NEWS';
 export const ERR_FETCH = 'ERR_FETCH';
 export const PAGE_CHANGE = 'PAGE_CHANGE';
+export const PAGE_CHANNEL = 'PAGE_CHANNEL';
 
 import $ from 'jquery';
 
@@ -34,7 +35,7 @@ export function changePage(numb) {
 
 export function setActiveNew(item) {
 	return {
-		type: "Pge",
-		payload:item
+		type: PAGE_CHANNEL,
+		payload: item
 	}
 }

@@ -53,7 +53,6 @@ class App extends React.Component {
                 <li onClick={this.onClickTitle(newsItem)} className="channel-item" key={index}>{newsItem.title}</li>
             )
         });
-        console.log(this.props.news.newsItems);
         return (
             <div className="column-row">
                 <div className="column-rss">

@@ -1,4 +1,4 @@
-import {FETCH_NEWS, ERR_FETCH, PAGE_CHANGE} from '../actions';
+import {FETCH_NEWS, ERR_FETCH, PAGE_CHANGE, PAGE_CHANNEL} from '../actions';
 const defaultState = {err: '', newsItems: [], currentPage: 1, activeNew: null};
 export default function (state = defaultState, action) {
     console.log(action.payload);
@@ -9,7 +9,7 @@ export default function (state = defaultState, action) {
             return {...state, err: '', currentPage: action.payload};
         case ERR_FETCH:
             return {err: action.payload, newsItems: []};
-        case "Pge":
+        case PAGE_CHANNEL:
             return {...state, activeNew: action.payload};
     }
     return state;

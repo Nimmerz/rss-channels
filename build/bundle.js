@@ -6718,7 +6718,7 @@ exports.default = isPlainObject;
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
-exports.PAGE_CHANGE = exports.ERR_FETCH = exports.FETCH_NEWS = undefined;
+exports.PAGE_CHANNEL = exports.PAGE_CHANGE = exports.ERR_FETCH = exports.FETCH_NEWS = undefined;
 exports.fetchNews = fetchNews;
 exports.changePage = changePage;
 exports.setActiveNew = setActiveNew;
@@ -6732,6 +6732,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var FETCH_NEWS = exports.FETCH_NEWS = 'FETCH_NEWS';
 var ERR_FETCH = exports.ERR_FETCH = 'ERR_FETCH';
 var PAGE_CHANGE = exports.PAGE_CHANGE = 'PAGE_CHANGE';
+var PAGE_CHANNEL = exports.PAGE_CHANNEL = 'PAGE_CHANNEL';
 
 function fetchNews(link) {
 	var query = 'https://query.yahooapis.com/v1/public/yql?q=select%20title%20from%20rss%20where%20url%3D%22' + link + '%22&format=json&diagnostics=true&callback=';
@@ -6763,7 +6764,7 @@ function changePage(numb) {
 
 function setActiveNew(item) {
 	return {
-		type: "Pge",
+		type: PAGE_CHANNEL,
 		payload: item
 	};
 }
@@ -24911,7 +24912,6 @@ var App = function (_React$Component) {
                     newsItem.title
                 );
             });
-            console.log(this.props.news.newsItems);
             return _react2.default.createElement(
                 'div',
                 { className: 'column-row' },
@@ -35061,7 +35061,7 @@ exports.default = function () {
             return _extends({}, state, { err: '', currentPage: action.payload });
         case _actions.ERR_FETCH:
             return { err: action.payload, newsItems: [] };
-        case "Pge":
+        case _actions.PAGE_CHANNEL:
             return _extends({}, state, { activeNew: action.payload });
     }
     return state;
