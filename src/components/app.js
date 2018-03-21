@@ -7,7 +7,8 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            link: ''
+            link: '',
+            activeNew: null
         }
     }
 
@@ -22,7 +23,9 @@ class App extends React.Component {
     }
 
     onClickTitle = (item) => () => {
-        this.props.setActiveNew(item);
+        this.setState({
+            activeNew: this.props.setActiveNew(item)
+        })
     };
 
     onPageClick(event) {
@@ -41,7 +44,6 @@ class App extends React.Component {
             )
         });
     }
-
 
 
     render() {
@@ -68,13 +70,16 @@ class App extends React.Component {
                 </div>
                 <div className="column-channel">
                     <ul className="channel">
-                        {this.props.activeNew}
+                        {
+                            (this.state.activeNew) ? this.state.activeNew.payload.title : null
+                        }
                     </ul>
                 </div>
             </div>
         )
     }
-};
+}
+;
 
 function mapStateToProps({news}) {
     return {news};

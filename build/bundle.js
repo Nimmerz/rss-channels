@@ -24852,12 +24852,15 @@ var App = function (_React$Component) {
 
         _this.onClickTitle = function (item) {
             return function () {
-                _this.props.setActiveNew(item);
+                _this.setState({
+                    activeNew: _this.props.setActiveNew(item)
+                });
             };
         };
 
         _this.state = {
-            link: ''
+            link: '',
+            activeNew: null
         };
         return _this;
     }
@@ -24956,7 +24959,7 @@ var App = function (_React$Component) {
                     _react2.default.createElement(
                         'ul',
                         { className: 'channel' },
-                        this.props.activeNew
+                        this.state.activeNew ? this.state.activeNew.payload.title : null
                     )
                 )
             );
