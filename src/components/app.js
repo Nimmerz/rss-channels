@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchNews, changePage, setActiveNew} from '../actions';
 import ListItems from './channels';
+import Show from './modal-button/index';
 
 class App extends React.Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class App extends React.Component {
         for (let i = 1; i <= Math.ceil(this.props.news.newsItems.length / 3); i++) {
             pages.push(i);
         }
+        console.log(this.props.news.newsItems);
         return pages.map((number) => {
             return (
                 <span className={this.props.news.currentPage == number ? 'activePage page' : 'page'}
@@ -70,6 +72,7 @@ class App extends React.Component {
                 </div>
                 <div className="column-channel">
                     <ul className="channel">
+                        <Show/>
                         {
                             (this.state.activeNew) ? this.state.activeNew.payload.title : null
                         }
@@ -78,11 +81,10 @@ class App extends React.Component {
             </div>
         )
     }
-}
-;
+};
 
 function mapStateToProps({news}) {
     return {news};
 };
 
-export default connect(mapStateToProps, {fetchNews, changePage, setActiveNew})(App);
+export default connect(state => mapStateToProps(state), {fetchNews, changePage, setActiveNew})(App);
