@@ -21,35 +21,6 @@ export const fetchNews = (link) => (dispatch) => {
     });
 };
 
-// export function fetchNews(link) {
-
-
-
-    // const query = `https://query.yahooapis.com/v1/public/yql?q=select%20title%20from%20rss%20where%20url%3D%22${link}%22&format=json&diagnostics=true`
-    // const errObj = {type: ERR_FETCH, payload: 'Unable to fetch news from this link'};
-    // return function (dispatch) {
-    //     dispatch({
-    //         CALL_API: {
-    //             types: [
-    //                 FETCH_NEWS,
-    //             ],
-    //             endpoint: () => get(query)
-    //          }
-    //     })
-    // };
-    // url: query,
-    // success: function(data) {
-    // 	if (data.query.results!==null){
-    // 		dispatch({type: FETCH_NEWS, payload: data.query.results.item});
-    // 	}else{
-    // 		dispatch(errObj);
-    // 	}
-    // },
-    // error: function(err) {
-    // 	dispatch(errObj);
-    // }
-
-
 
 export function changePage(numb) {
     return {

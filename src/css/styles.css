@@ -188,7 +188,8 @@ li{
 
 .main__content--modal-buttons {
 	display: flex;
-	justify-content: flex-end;
+	align-items: flex-end;
+	flex-direction: column;
 	padding-right: 27px;
 	padding-left: 27px;
 }
@@ -237,4 +238,8 @@ li{
 	align-items: center;
 	justify-content: center;
 	z-index: 2;
+}
+
+.pipe-chart {
+	margin: 10px auto;
 }
