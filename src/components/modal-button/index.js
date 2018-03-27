@@ -71,7 +71,7 @@ class Show extends Component {
     };
 
     handleShow = () => () => {
-        this.setState({showModal: true});
+        (this.props.item) ? this.setState({showModal: true}) : alert ('Choose title for PipeChrat!')
     };
 
     handleHide = () => () => {
@@ -79,7 +79,7 @@ class Show extends Component {
     };
 
     render() {
-        console.log('item: ', (this.props.item) ? this.props.item.title : '');
+        console.log('item: ', (this.props.item) ? this.props.item.title : 'empty title');
         const data = this.countLetters();
         console.log(data);
         const modal = this.state.showModal ? (
@@ -94,7 +94,7 @@ class Show extends Component {
                         <div className="main__content--modal-buttons">
 
                             <PieChart className="pipe-chart"
-                                data={ data }
+                               data={ data }
                             />
                             <button className="main__content--modal-cancel" type="cancel"
                                     onClick={this.handleHide()}>

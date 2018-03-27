@@ -11672,7 +11672,7 @@ var App = function (_React$Component) {
     }, {
         key: 'clickHandler',
         value: function clickHandler() {
-            this.props.fetchNews(this.state.link);
+            this.state.link ? this.props.fetchNews(this.state.link) : alert('The input is empty!!!');
         }
     }, {
         key: 'onPageClick',
@@ -12004,7 +12004,7 @@ var Show = function (_Component2) {
             return data;
         }, _this2.handleShow = function () {
             return function () {
-                _this2.setState({ showModal: true });
+                _this2.props.item ? _this2.setState({ showModal: true }) : alert('Choose title for PipeChrat!');
             };
         }, _this2.handleHide = function () {
             return function () {
@@ -12016,7 +12016,7 @@ var Show = function (_Component2) {
     _createClass(Show, [{
         key: 'render',
         value: function render() {
-            console.log('item: ', this.props.item ? this.props.item.title : '');
+            console.log('item: ', this.props.item ? this.props.item.title : 'empty title');
             var data = this.countLetters();
             console.log(data);
             var modal = this.state.showModal ? _react2.default.createElement(

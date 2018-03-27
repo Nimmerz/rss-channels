@@ -20,7 +20,7 @@ class App extends React.Component {
     }
 
     clickHandler() {
-        this.props.fetchNews(this.state.link);
+        (this.state.link) ?  this.props.fetchNews(this.state.link) : alert('The input is empty!!!')
     }
 
     onClickTitle = (item) => () => {
