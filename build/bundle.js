@@ -11976,33 +11976,32 @@ var Show = function (_Component2) {
         return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref = Show.__proto__ || Object.getPrototypeOf(Show)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {
             showModal: false
 
-        }, _this2.countLetters = function (text) {
-            return function () {
-                var text = _this2.props.item.title;
-                text.toLowerCase();
+        }, _this2.countLetters = function () {
+            var text = _this2.props.item ? _this2.props.item.title : '';
+            text.toLowerCase();
 
-                if (!text) {
-                    return 'Current message has no description';
+            if (!text) {
+                return 'Current message has no description';
+            }
+
+            var data = [];
+            var lettersAmount = text.match(/[a-zA-Z]/g).length;
+
+            alphabet.forEach(function (letter, i) {
+                var currentLetterAmount = text.match(new RegExp('' + letter, 'g'));
+
+                if (currentLetterAmount) {
+                    var percent = currentLetterAmount.length / lettersAmount * 100;
+
+                    data.push({
+                        key: letter,
+                        value: percent.toFixed(2),
+                        color: colors[i]
+                    });
                 }
+            });
 
-                var data = [];
-                var lettersAmount = text.match(/[a-zA-Z]/g).length;
-
-                alphabet.forEach(function (letter) {
-                    var currentLetterAmount = text.match(new RegExp('' + letter, 'g'));
-
-                    if (currentLetterAmount) {
-                        var percent = currentLetterAmount.length / lettersAmount * 100;
-
-                        data.push({
-                            key: letter,
-                            value: percent.toFixed(2)
-                        });
-                    }
-                });
-
-                return data;
-            };
+            return data;
         }, _this2.handleShow = function () {
             return function () {
                 _this2.setState({ showModal: true });
@@ -12017,8 +12016,9 @@ var Show = function (_Component2) {
     _createClass(Show, [{
         key: 'render',
         value: function render() {
-            console.log('item: ', this.props.item ? this.props.item.title : null);
-            console.log(this.countLetters());
+            console.log('item: ', this.props.item ? this.props.item.title : '');
+            var data = this.countLetters();
+            console.log(data);
             var modal = this.state.showModal ? _react2.default.createElement(
                 Modal,
                 null,
@@ -12046,7 +12046,7 @@ var Show = function (_Component2) {
                             'div',
                             { className: 'main__content--modal-buttons' },
                             _react2.default.createElement(_reactMinimalPieChart2.default, { className: 'pipe-chart',
-                                data: [{ value: 10, key: 1, color: '#E38627' }, { value: 15, key: 2, color: '#C13C37' }, { value: 20, key: 3, color: '#6A2135' }]
+                                data: [{ value: data[0].value, key: data[0].key, color: data[0].color }]
                             }),
                             _react2.default.createElement(
                                 'button',

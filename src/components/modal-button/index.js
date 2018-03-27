@@ -41,8 +41,8 @@ class Show extends Component {
     };
 
 
-    countLetters = () => () =>{
-        let text = this.props.item.title;
+    countLetters = () =>{
+        let text = (this.props.item) ? this.props.item.title : '';
         text.toLowerCase();
 
         if(!text) {
@@ -52,7 +52,7 @@ class Show extends Component {
         let data = [];
         let lettersAmount = text.match(/[a-zA-Z]/g).length;
 
-        alphabet.forEach((letter) => {
+        alphabet.forEach((letter, i) => {
             let currentLetterAmount = text.match(new RegExp(`${letter}`, `g`));
 
             if(currentLetterAmount) {
@@ -60,7 +60,8 @@ class Show extends Component {
 
                 data.push({
                     key: letter,
-                    value: percent.toFixed(2)
+                    value: percent.toFixed(2),
+                    color: colors[i]
                 });
             }
 
@@ -78,7 +79,9 @@ class Show extends Component {
     };
 
     render() {
-        console.log('item: ', (this.props.item) ? this.props.item.title : null);
+        console.log('item: ', (this.props.item) ? this.props.item.title : '');
+        const data = this.countLetters();
+        console.log(data);
         const modal = this.state.showModal ? (
             <Modal>
                 <div className="modal">
@@ -92,9 +95,7 @@ class Show extends Component {
 
                             <PieChart className="pipe-chart"
                                 data={[
-                                    {value: 10, key: 1, color: '#E38627'},
-                                    {value: 15, key: 2, color: '#C13C37'},
-                                    {value: 20, key: 3, color: '#6A2135'},
+                                    {value: data[0].value, key: data[0].key, color: data[0].color},
                                 ]}
                             />
                             <button className="main__content--modal-cancel" type="cancel"
