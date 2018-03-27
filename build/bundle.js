@@ -11995,7 +11995,7 @@ var Show = function (_Component2) {
 
                     data.push({
                         key: letter,
-                        value: percent.toFixed(2),
+                        value: +percent.toFixed(2),
                         color: colors[i]
                     });
                 }
@@ -12046,7 +12046,7 @@ var Show = function (_Component2) {
                             'div',
                             { className: 'main__content--modal-buttons' },
                             _react2.default.createElement(_reactMinimalPieChart2.default, { className: 'pipe-chart',
-                                data: [{ value: data[0].value, key: data[0].key, color: data[0].color }]
+                                data: data
                             }),
                             _react2.default.createElement(
                                 'button',

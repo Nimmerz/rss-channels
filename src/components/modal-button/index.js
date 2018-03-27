@@ -60,7 +60,7 @@ class Show extends Component {
 
                 data.push({
                     key: letter,
-                    value: percent.toFixed(2),
+                    value: +percent.toFixed(2),
                     color: colors[i]
                 });
             }
@@ -94,9 +94,7 @@ class Show extends Component {
                         <div className="main__content--modal-buttons">
 
                             <PieChart className="pipe-chart"
-                                data={[
-                                    {value: data[0].value, key: data[0].key, color: data[0].color},
-                                ]}
+                                data={ data }
                             />
                             <button className="main__content--modal-cancel" type="cancel"
                                     onClick={this.handleHide()}>
