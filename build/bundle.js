@@ -566,6 +566,37 @@ module.exports = warning;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.connect = exports.connectAdvanced = exports.createProvider = exports.Provider = undefined;
+
+var _Provider = __webpack_require__(43);
+
+var _Provider2 = _interopRequireDefault(_Provider);
+
+var _connectAdvanced = __webpack_require__(23);
+
+var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
+
+var _connect = __webpack_require__(49);
+
+var _connect2 = _interopRequireDefault(_connect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.Provider = _Provider2.default;
+exports.createProvider = _Provider.createProvider;
+exports.connectAdvanced = _connectAdvanced2.default;
+exports.connect = _connect2.default;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -580,7 +611,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(4);
   var warning = __webpack_require__(6);
-  var ReactPropTypesSecret = __webpack_require__(8);
+  var ReactPropTypesSecret = __webpack_require__(9);
   var loggedTypeFailures = {};
 }
 
@@ -630,7 +661,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -646,37 +677,6 @@ module.exports = checkPropTypes;
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 module.exports = ReactPropTypesSecret;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.connect = exports.connectAdvanced = exports.createProvider = exports.Provider = undefined;
-
-var _Provider = __webpack_require__(43);
-
-var _Provider2 = _interopRequireDefault(_Provider);
-
-var _connectAdvanced = __webpack_require__(23);
-
-var _connectAdvanced2 = _interopRequireDefault(_connectAdvanced);
-
-var _connect = __webpack_require__(49);
-
-var _connect2 = _interopRequireDefault(_connect);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.Provider = _Provider2.default;
-exports.createProvider = _Provider.createProvider;
-exports.connectAdvanced = _connectAdvanced2.default;
-exports.connect = _connect2.default;
 
 /***/ }),
 /* 10 */
@@ -2273,7 +2273,7 @@ var _reactDom = __webpack_require__(15);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(7);
 
 var _redux = __webpack_require__(12);
 
@@ -2459,7 +2459,7 @@ if (process.env.NODE_ENV !== "production") {
     var invariant = __webpack_require__(4);
     var warning = __webpack_require__(6);
     var emptyFunction = __webpack_require__(2);
-    var checkPropTypes = __webpack_require__(7);
+    var checkPropTypes = __webpack_require__(8);
 
     // TODO: this is special because it gets imported during build.
 
@@ -5860,7 +5860,7 @@ module.exports = isNode;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(1);var invariant=__webpack_require__(4);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(16);var _assign=__webpack_require__(3);var emptyFunction=__webpack_require__(2);var EventListener=__webpack_require__(17);var getActiveElement=__webpack_require__(18);var shallowEqual=__webpack_require__(19);var containsNode=__webpack_require__(20);var focusNode=__webpack_require__(21);var emptyObject=__webpack_require__(5);var checkPropTypes=__webpack_require__(7);var hyphenateStyleName=__webpack_require__(39);var camelizeStyleName=__webpack_require__(41);/**
+ */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(1);var invariant=__webpack_require__(4);var warning=__webpack_require__(6);var ExecutionEnvironment=__webpack_require__(16);var _assign=__webpack_require__(3);var emptyFunction=__webpack_require__(2);var EventListener=__webpack_require__(17);var getActiveElement=__webpack_require__(18);var shallowEqual=__webpack_require__(19);var containsNode=__webpack_require__(20);var focusNode=__webpack_require__(21);var emptyObject=__webpack_require__(5);var checkPropTypes=__webpack_require__(8);var hyphenateStyleName=__webpack_require__(39);var camelizeStyleName=__webpack_require__(41);/**
  * WARNING: DO NOT manually require this module.
  * This is a replacement for `invariant(...)` used by the error code system
  * and will _only_ be required by the corresponding babel pass.
@@ -9120,8 +9120,8 @@ var invariant = __webpack_require__(4);
 var warning = __webpack_require__(6);
 var assign = __webpack_require__(3);
 
-var ReactPropTypesSecret = __webpack_require__(8);
-var checkPropTypes = __webpack_require__(7);
+var ReactPropTypesSecret = __webpack_require__(9);
+var checkPropTypes = __webpack_require__(8);
 
 module.exports = function (isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -9640,7 +9640,7 @@ module.exports = function (isValidElement, throwOnDirectAccess) {
 
 var emptyFunction = __webpack_require__(2);
 var invariant = __webpack_require__(4);
-var ReactPropTypesSecret = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(9);
 
 module.exports = function () {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -11619,7 +11619,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(7);
 
 var _actions = __webpack_require__(14);
 
@@ -11799,7 +11799,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _index = __webpack_require__(14);
 
-var _reactRedux = __webpack_require__(9);
+var _reactRedux = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11911,6 +11911,8 @@ var _reactMinimalPieChart = __webpack_require__(78);
 
 var _reactMinimalPieChart2 = _interopRequireDefault(_reactMinimalPieChart);
 
+var _reactRedux = __webpack_require__(7);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -11973,16 +11975,17 @@ var Show = function (_Component2) {
 
         return _ret = (_temp = (_this2 = _possibleConstructorReturn(this, (_ref = Show.__proto__ || Object.getPrototypeOf(Show)).call.apply(_ref, [this].concat(args))), _this2), _this2.state = {
             showModal: false
-        }, _this2.countLetters = function (messageIndex, channelIndex) {
+
+        }, _this2.countLetters = function (text) {
             return function () {
-                var text = 'dsakdhajkdhajdhakhdajkdhsjahdsajkhdasjkdh';
+                var text = _this2.props.item.title;
                 text.toLowerCase();
 
                 if (!text) {
                     return 'Current message has no description';
                 }
 
-                var chartData = [];
+                var data = [];
                 var lettersAmount = text.match(/[a-zA-Z]/g).length;
 
                 alphabet.forEach(function (letter) {
@@ -11991,14 +11994,14 @@ var Show = function (_Component2) {
                     if (currentLetterAmount) {
                         var percent = currentLetterAmount.length / lettersAmount * 100;
 
-                        chartData.push({
-                            letter: letter,
-                            percent: percent.toFixed(2)
+                        data.push({
+                            key: letter,
+                            value: percent.toFixed(2)
                         });
                     }
                 });
 
-                return chartData;
+                return data;
             };
         }, _this2.handleShow = function () {
             return function () {
@@ -12014,6 +12017,8 @@ var Show = function (_Component2) {
     _createClass(Show, [{
         key: 'render',
         value: function render() {
+            console.log('item: ', this.props.item ? this.props.item.title : null);
+            console.log(this.countLetters());
             var modal = this.state.showModal ? _react2.default.createElement(
                 Modal,
                 null,
@@ -12069,7 +12074,13 @@ var Show = function (_Component2) {
     return Show;
 }(_react.Component);
 
-exports.default = Show;
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        item: state.news.activeNew
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, null)(Show);
 
 /***/ }),
 /* 78 */

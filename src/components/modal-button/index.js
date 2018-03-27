@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import PieChart from 'react-minimal-pie-chart';
+import { connect } from 'react-redux';
 
 const modal = document.getElementById('modal-root');
 
@@ -35,19 +36,20 @@ class Modal extends Component {
 class Show extends Component {
 
     state = {
-        showModal: false
+        showModal: false,
+
     };
 
 
-    countLetters = (messageIndex, channelIndex) => () =>{
-        let text = 'dsakdhajkdhajdhakhdajkdhsjahdsajkhdasjkdh';
+    countLetters = () => () =>{
+        let text = this.props.item.title;
         text.toLowerCase();
 
         if(!text) {
             return 'Current message has no description';
         }
 
-        let chartData = [];
+        let data = [];
         let lettersAmount = text.match(/[a-zA-Z]/g).length;
 
         alphabet.forEach((letter) => {
@@ -56,15 +58,15 @@ class Show extends Component {
             if(currentLetterAmount) {
                 let percent = currentLetterAmount.length / lettersAmount * 100;
 
-                chartData.push({
-                    letter: letter,
-                    percent: percent.toFixed(2)
+                data.push({
+                    key: letter,
+                    value: percent.toFixed(2)
                 });
             }
 
         });
 
-        return chartData
+        return data
     };
 
     handleShow = () => () => {
@@ -76,6 +78,7 @@ class Show extends Component {
     };
 
     render() {
+        console.log('item: ', (this.props.item) ? this.props.item.title : null);
         const modal = this.state.showModal ? (
             <Modal>
                 <div className="modal">
@@ -86,6 +89,7 @@ class Show extends Component {
                         </div>
 
                         <div className="main__content--modal-buttons">
+
                             <PieChart className="pipe-chart"
                                 data={[
                                     {value: 10, key: 1, color: '#E38627'},
@@ -113,5 +117,9 @@ class Show extends Component {
 }
 
 
-export default Show;
+const mapStateToProps = (state) => ({
+    item: state.news.activeNew
+});
+
+export default connect(mapStateToProps, null)(Show);
 
